@@ -1,21 +1,24 @@
 # Streamlit Machine Learning Dashboard
 
 ## Overview
-This is a Streamlit dashboard that visualizes data stored in a `.pkl` file.
+This is a Streamlit dashboard for machine learning model stored in a `.pkl` file.
 
 ## Setup Instructions
 1. Clone this repository:
    ```bash
-   git clone <repository-url>
-   cd streamlit_dashboard
+    git clone https://github.com/bluefl4mingo/ML-Calculator-Dashboard.git
+    cd streamlit_dashboard
 
-### Set Up the Virtual Environment
-python -m venv venv
-venv\Scripts\activate
+2. Set Up the Virtual Environment
+   ```bash
+    python -m venv venv
+    venv\Scripts\activate
 
-### Install Dependencies
-pip install -r requirements.txt
+3. Install Dependencies
+   ```bash
+    pip install -r requirements.txt
 
-### Run The App
-streamlit run app.py
+4. Run The App
+   ```bash
+    streamlit run app.py
 

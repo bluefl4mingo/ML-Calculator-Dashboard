@@ -27,11 +27,22 @@ model_folder_path = "models"  # Folder containing the .pkl files
 models = load_all_models(model_folder_path)
 
 # HEADER LAYOUT
-headcol1, headcol2, headcol3, headcol4 = st.columns([0.05, 0.15, 0.05, 0.75], vertical_alignment="bottom")
-with headcol2:
-    st.image(os.path.join("assets", "BMKG.svg"), width=94)
-with headcol4:
-    st.title("Flux Machine Learning Calculator Dashboard")
+# headcol1, headcol2, headcol3, headcol4 = st.columns([0.05, 0.15, 0.05, 0.75], vertical_alignment="bottom")
+# with headcol2:
+#     st.image(os.path.join("assets", "BMKG.svg"), width=94)
+# with headcol4:
+#     st.title("Flux Machine Learning Calculator Dashboard")
+
+
+logocol1, logocol2, logocol3, logocol4 = st.columns([0.05, 0.03, 0.06, 0.01], vertical_alignment="bottom")
+with logocol2:
+    st.image(os.path.join("assets", "BMKG.svg"), width=90)
+with logocol3:
+    st.image(os.path.join("assets", "LogoUGM.svg"), width=106)
+
+titlecol1, titlecol2, titlecol3 = st.columns([0.1, 0.8, 0.1], vertical_alignment="center")
+with titlecol2:
+    st.html(f"<h2 style='text-align: center; font-size: 2.5em'>Flux Machine Learning Calculator Dashboard</h2>")
 st.divider()
 
 # Input features based on model requirements
@@ -145,11 +156,6 @@ with predtext:
 # # Assuming all models expect the same features (modify as needed)
 # feature_names = ['Tekanan Udara', 'Suhu Average', 'RH Average', 'SR Average', 'Suhu Tanah', 'PH', 'Kelembapan Tanah', 'EC']
 
-# # Create input fields dynamically
-# input_data = {}
-# for feature in feature_names:
-#     input_data[feature] = st.number_input(f"{feature}", value= 0)
-
 # Convert input dictionary to DataFrame
 input_df = pd.DataFrame([input_data])
 
@@ -182,11 +188,11 @@ with fluxtext:
                     }
                     """,
             ):
-                st.html(f"<h2 style='text-align: center; font-size: 2em', 'text-color= blue'>Flux: {prediction[0]:.2f}</h2>")
+                st.html(f"<h2 style='text-align: center; font-size: 1.8em', 'text-color= blue'>Flux: {prediction[0]:.2f} mg/m²/jam</h2>")
                 
 
 with fluxindicator:
-    if prediction > 0.14:
+    if prediction < 0.14:
         with stylable_container(
                 key="custom_container_1",
                 css_styles="""
@@ -197,11 +203,11 @@ with fluxindicator:
                     }
                     """,
             ):
-                indicatorspace1, indicatorimg, indicatortext, indicatorspace2 = st.columns([0.01, 0.074, 0.3, 0.01], vertical_alignment="center")
+                indicatorspace1, indicatorimg, indicatortext, indicatorspace2 = st.columns([0.05, 0.075, 0.25, 0.05], vertical_alignment="center")
                 with indicatorimg:
                     st.image(os.path.join("assets", "SmileFace.svg"), width=60)
                 with indicatortext:
-                    st.html(f"<h4 style='text-align: center; color: #0E1117'>Kondisi cuaca hari ini cukup cerah, sangat cocok untuk berolahraga atau sekadar berjalan-jalan.</h4>")
+                    st.html(f"<h4 style='text-align: center; color: #0E1117; font-size: 1.25em'>Kondisi ramah lingkungan</h4>")
     else:
         with stylable_container(
                 key="custom_container_2",
@@ -213,8 +219,8 @@ with fluxindicator:
                     }
                     """,
             ):
-                indicatorspace1, indicatorimg, indicatortext, indicatorspace2 = st.columns([0.01, 0.074, 0.3, 0.01], vertical_alignment="center")
+                indicatorspace1, indicatorimg, indicatortext, indicatorspace2 = st.columns([0.05, 0.075, 0.25, 0.05], vertical_alignment="center")
                 with indicatorimg:
                     st.image(os.path.join("assets", "SadFace.svg"), width=65)
                 with indicatortext:
-                    st.html(f"<h4 style='text-align: center; color: #0E1117'>Kondisi cuaca hari ini kurang bagus, sebaiknya menetap di rumah dan rebahan. Stay safe!</h4>")
+                    st.html(f"<h4 style='text-align: center; color: #0E1117; font-size: 1.25em'>Kondisi lingkungan tercemar</h4>")

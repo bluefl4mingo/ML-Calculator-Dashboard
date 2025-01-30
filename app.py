@@ -31,7 +31,7 @@ logocol1, logocol2, logocol3, logocol4, logocol5 = st.columns([0.02, 0.033, 0.03
 with logocol2:
     st.image(os.path.join("assets", "LogoUGM.svg"), width=106)
 with logocol3:
-    st.image(os.path.join("assets", "LogoBMKG.svg"), width=90)
+    st.image(os.path.join("assets", "BMKG.svg"), width=90)
 with logocol4:
     st.image(os.path.join("assets", "LogoUNS.png"), width=109)
 

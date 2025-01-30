@@ -26,19 +26,14 @@ def load_all_models(folder_path):
 model_folder_path = "models"  # Folder containing the .pkl files
 models = load_all_models(model_folder_path)
 
-# HEADER LAYOUT
-# headcol1, headcol2, headcol3, headcol4 = st.columns([0.05, 0.15, 0.05, 0.75], vertical_alignment="bottom")
-# with headcol2:
-#     st.image(os.path.join("assets", "BMKG.svg"), width=94)
-# with headcol4:
-#     st.title("Flux Machine Learning Calculator Dashboard")
 
-
-logocol1, logocol2, logocol3, logocol4 = st.columns([0.05, 0.03, 0.06, 0.01], vertical_alignment="bottom")
+logocol1, logocol2, logocol3, logocol4, logocol5 = st.columns([0.02, 0.033, 0.03, 0.03, 0.012], vertical_alignment="bottom")
 with logocol2:
-    st.image(os.path.join("assets", "BMKG.svg"), width=90)
-with logocol3:
     st.image(os.path.join("assets", "LogoUGM.svg"), width=106)
+with logocol3:
+    st.image(os.path.join("assets", "LogoBMKG.svg"), width=90)
+with logocol4:
+    st.image(os.path.join("assets", "LogoUNS.png"), width=109)
 
 titlecol1, titlecol2, titlecol3 = st.columns([0.1, 0.8, 0.1], vertical_alignment="center")
 with titlecol2:
